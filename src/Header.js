@@ -10,10 +10,13 @@ function Header() {
       url: "http://localhost:3001/generateUrl",
       method: "post",
       data: {
-        url: document.querySelector(".header__input").value,
+        URL: document.querySelector(".header__input").value,
       },
     });
-    console.log(data);
+    const ele = document.querySelector('.none');
+    ele.className = "header__redr";
+    ele.href = `http://localhost:3001/${data.data}`
+    ele.textContent = `http://localhost:3001/${data.data}`;
   };
   return (
     <div className="header">
@@ -24,7 +27,8 @@ function Header() {
       </span>
       <div className="header__container">
         <input type="url" className="header__input"></input>
-        <button className="header__button">GET URL</button>
+        <button className="header__button" onClick={getUrl}>GET URL</button>
+        <a href="#" className="none">hello</a>
       </div>
     </div>
   );

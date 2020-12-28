@@ -46,6 +46,19 @@
   cursor: pointer;
 }
 
+.none {
+    display: none;
+}
+
+.header__redr {
+    margin-top: 2rem;
+    text-decoration: none;
+    background-color: #7455be96;
+    padding: 5px 10px;
+    border-radius: 50px;
+    color: black;
+}
+
 @media (min-width: 620px)
 {
     .header {
