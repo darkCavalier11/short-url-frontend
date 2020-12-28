@@ -44,6 +44,8 @@
   background-color: #7555be;
   color: white;
   cursor: pointer;
+  font-weight: bolder;
+  letter-spacing: 4.5px;
 }
 
 .none {
