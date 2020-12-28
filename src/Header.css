@@ -1,0 +1,46 @@
+.header {
+    background-image: url('back1.svg');
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+ .header__logo {
+     margin-left: 2rem;
+     margin-top: 2rem;
+     height: 2rem;
+     object-fit: contain;
+ }
+ .header__legend {
+     color: #160049;
+     margin-top: 2rem;
+     margin-left: 2rem;
+     max-width: 5rem;
+ }
+ .header__desc {
+     margin-top: 2rem;
+     margin-left: 2rem;
+     max-width: 10rem;
+ }
+ .header__container {
+     margin-top: 2rem;
+     margin-left: 2rem;
+     display: flex;
+     flex-direction: column;
+ }
+ .header__input {
+     border: none;
+     outline: none;
+     border: 2px solid #7555be;
+    padding: 5px 10px;
+    border-radius: 50px;
+ }
+ .header__button {
+     margin-top: 1rem;
+     padding: 5px 15px;
+     border-radius: 50px;
+     border: none;
+     outline: none;
+     background-color: #7555be;
+     color: white;
+ }
