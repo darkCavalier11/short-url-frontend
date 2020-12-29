@@ -12,7 +12,7 @@ function Header() {
     button.disabled = true;
     button.textContent = "Loading...";
     const data = await axios({
-      url: "http://localhost:3001/generateUrl",
+      url: "https://shortc.herokuapp.com/generateUrl",
       method: "post",
       data: {
         URL: document.querySelector(".header__input").value,
@@ -23,8 +23,8 @@ function Header() {
     button.textContent = "GET URL";
     const ele = document.querySelector(".none");
     ele.className = "header__redr";
-    ele.href = `http://localhost:3001/${data.data}`;
-    ele.textContent = `http://localhost:3001/${data.data}`;
+    ele.href = `https://shortc.herokuapp.com/${data.data}`;
+    ele.textContent = `https://shortc.herokuapp.com/${data.data}`;
   };
   return (
     <div className="header">
