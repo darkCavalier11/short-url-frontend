@@ -5,6 +5,7 @@ import axios from "axios";
 
 function Header() {
   const getUrl = async function (e) {
+    const dbURL = "https://shortc.herokuapp.com/";
     e.preventDefault();
     const button = document.querySelector(".header__button");
     const title = document.querySelector("title");
@@ -13,21 +14,25 @@ function Header() {
     button.textContent = "Loading...";
     try {
       const data = await axios({
-        url: "https://shortc.herokuapp.com/generateUrl",
+        url: `${dbURL}generateUrl`,
         method: "post",
         data: {
           URL: document.querySelector(".header__input").value,
         },
       });
+      console.log(data);
       title.textContent = "short-url";
       button.disabled = false;
       button.textContent = "GET URL";
       const ele = document.querySelector(".none");
       ele.className = "header__redr";
-      ele.href = `https://shortc.herokuapp.com/${data.data}`;
-      ele.textContent = `https://shortc.herokuapp.com/${data.data}`;
+      ele.href = `${dbURL}${data.data}`;
+      ele.textContent = `${dbURL}${data.data}`;
     }
     catch (err) {
+      const ele = document.querySelector(".none");
+      ele.className = "header__redr";
+      ele.textContent = `INVALID URL :(`;
       title.textContent = "short-url";
       button.disabled = false;
       button.textContent = "GET URL";
