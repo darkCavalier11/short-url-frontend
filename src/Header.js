@@ -5,6 +5,7 @@ import axios from "axios";
 
 function Header() {
   const getUrl = async function (e) {
+    document.querySelector(".header__container").lastChild.className = "none";
     const dbURL = "https://shortc.herokuapp.com/";
     e.preventDefault();
     const button = document.querySelector(".header__button");
@@ -20,6 +21,7 @@ function Header() {
           URL: document.querySelector(".header__input").value,
         },
       });
+      console.log(data);
       console.log(data);
       title.textContent = "short-url";
       button.disabled = false;
@@ -51,7 +53,6 @@ function Header() {
           GET URL
         </button>
         <a href="#" className="none">
-          hello
         </a>
       </div>
     </div>
