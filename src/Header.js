@@ -7,24 +7,31 @@ function Header() {
   const getUrl = async function (e) {
     e.preventDefault();
     const button = document.querySelector(".header__button");
-    const title = document.querySelector('title');
-    title.textContent = "Loading..."
+    const title = document.querySelector("title");
+    title.textContent = "Loading...";
     button.disabled = true;
     button.textContent = "Loading...";
-    const data = await axios({
-      url: "https://shortc.herokuapp.com/generateUrl",
-      method: "post",
-      data: {
-        URL: document.querySelector(".header__input").value,
-      },
-    });
-    title.textContent = "short-url"
-    button.disabled = false;
-    button.textContent = "GET URL";
-    const ele = document.querySelector(".none");
-    ele.className = "header__redr";
-    ele.href = `https://shortc.herokuapp.com/${data.data}`;
-    ele.textContent = `https://shortc.herokuapp.com/${data.data}`;
+    try {
+      const data = await axios({
+        url: "https://shortc.herokuapp.com/generateUrl",
+        method: "post",
+        data: {
+          URL: document.querySelector(".header__input").value,
+        },
+      });
+      title.textContent = "short-url";
+      button.disabled = false;
+      button.textContent = "GET URL";
+      const ele = document.querySelector(".none");
+      ele.className = "header__redr";
+      ele.href = `https://shortc.herokuapp.com/${data.data}`;
+      ele.textContent = `https://shortc.herokuapp.com/${data.data}`;
+    }
+    catch (err) {
+      title.textContent = "short-url";
+      button.disabled = false;
+      button.textContent = "GET URL";
+    }
   };
   return (
     <div className="header">
