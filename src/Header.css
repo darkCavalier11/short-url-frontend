@@ -61,7 +61,7 @@
     color: black;
 }
 
-@media (min-width: 620px)
+@media (min-width: 500px)
 {
     .header {
         background-image: url("back2.svg");

@@ -6,6 +6,11 @@ import axios from "axios";
 function Header() {
   const getUrl = async function (e) {
     e.preventDefault();
+    const button = document.querySelector(".header__button");
+    const title = document.querySelector('title');
+    title.textContent = "Loading..."
+    button.disabled = true;
+    button.textContent = "Loading...";
     const data = await axios({
       url: "http://localhost:3001/generateUrl",
       method: "post",
@@ -13,9 +18,12 @@ function Header() {
         URL: document.querySelector(".header__input").value,
       },
     });
-    const ele = document.querySelector('.none');
+    title.textContent = "short-url"
+    button.disabled = false;
+    button.textContent = "GET URL";
+    const ele = document.querySelector(".none");
     ele.className = "header__redr";
-    ele.href = `http://localhost:3001/${data.data}`
+    ele.href = `http://localhost:3001/${data.data}`;
     ele.textContent = `http://localhost:3001/${data.data}`;
   };
   return (
@@ -27,8 +35,12 @@ function Header() {
       </span>
       <div className="header__container">
         <input type="url" className="header__input"></input>
-        <button className="header__button" onClick={getUrl}>GET URL</button>
-        <a href="#" className="none">hello</a>
+        <button className="header__button" onClick={getUrl}>
+          GET URL
+        </button>
+        <a href="#" className="none">
+          hello
+        </a>
       </div>
     </div>
   );
